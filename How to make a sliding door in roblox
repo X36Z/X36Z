@@ -35,3 +35,32 @@ prompt.Triggered:Connect(function()
 	end
   
 end)
+
+--- 1 Side ---
+
+local TweenService = game:GetService("TweenService")
+
+local model = script.Parent
+local LeftDoor = model.LeftDoor
+local prompt = model.Top.Attachment.ProximityPrompt
+
+local tweenInfo = TweenInfo.new(1)
+
+local LeftGoalOpen = {}
+local LeftGoalClose = {}
+LeftGoalOpen.CFrame = LeftDoor.CFrame * CFrame.new(LeftDoor.Size.X, 0, 0)
+LeftGoalClose.CFrame = LeftDoor.CFrame
+local LeftTweenOpen = TweenService:Create(LeftDoor, tweenInfo, LeftGoalOpen)
+local LeftTweenClose = TweenService:Create(LeftDoor, tweenInfo, LeftGoalClose)
+
+
+prompt.Triggered:Connect(function()
+	if prompt.ActionText == "Close" then
+		LeftTweenClose:Play()
+		prompt.ActionText = "Open"
+	else
+		LeftTweenOpen:Play()
+		prompt.ActionText = "Close"
+	end
+	
+end)
