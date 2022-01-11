@@ -1,0 +1,37 @@
+--- Script For Roblox studio Sliding door ---
+
+local model = script.Parent
+local LeftDoor = model.LeftDoor
+local RightDoor = model.RightDoor
+local prompt = model.Top.Attachment.ProximityPrompt
+
+local tweenInfo = TweenInfo.new(1)
+
+local LeftGoalOpen = {}
+local LeftGoalClose = {}
+LeftGoalOpen.CFrame = LeftDoor.CFrame * CFrame.new(LeftDoor.Size.X, 0, 0)
+LeftGoalClose.CFrame = LeftDoor.CFrame
+local LeftTweenOpen = TweenService:Create(LeftDoor, tweenInfo, LeftGoalOpen)
+local LeftTweenClose = TweenService:Create(LeftDoor, tweenInfo, LeftGoalClose)
+
+
+local RightGoalOpen = {}
+local RightGoalClose = {}
+RightGoalOpen.CFrame = RightDoor.CFrame * CFrame.new(-RightDoor.Size.X, 0, 0)
+RightGoalClose.CFrame = RightDoor.CFrame
+local RightTweenOpen = TweenService:Create(RightDoor, tweenInfo, RightGoalOpen)
+local RightTweenClose = TweenService:Create(RightDoor, tweenInfo, RightGoalClose)
+
+
+prompt.Triggered:Connect(function()
+	if prompt.ActionText == "Close" then
+		LeftTweenClose:Play()
+		RightTweenClose:Play()
+		prompt.ActionText = "Open"
+	else
+		LeftTweenOpen:Play()
+		RightTweenOpen:Play()
+		prompt.ActionText = "Close"
+	end
+  
+end)
