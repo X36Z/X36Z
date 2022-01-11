@@ -1,7 +1,6 @@
 - 👋 Hi, I’m @X36Z
-- 👀 I’m interested in minecraft Javascript and java
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
+- 👀 I’m interested in minecraft Javascript and java and C++
+- 🌱 I’m currently learning C++ And Scripting On Roblox
 - 📫 How to reach me: https://www.beacons.ai/mythicihas
 
 <!---
